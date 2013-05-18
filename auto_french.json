@@ -101,6 +101,7 @@
       "wallet_app":{
          "disconnected":"DÉBRANCHÉ",
          "transactions":{
+            "filter_unspendable":"Unspendable (par défaut)",
             "sub_header":"Résumé de vos transactions récentes",
             "sent":"Expédié",
             "compact":"Compact",
@@ -142,6 +143,7 @@
             "sms_message":"Message SMS",
             "for_example":"Par exemple:",
             "multiple_ip_comma_seperated":"Plusieurs adresses IP doivent être séparées par des virgules.",
+            "block_tor_ips_description":"Activez l&#39;option suivante pour empêcher les adresses IP partie du réseau d&#39;anonymisation TOR d&#39;accéder à votre portefeuille.",
             "automatic_email_backups":"Les sauvegardes automatiques par courriel",
             "sms_notifications":"Notifications par SMS",
             "boxcar_description_p2":"e-mail ci-dessous:",
@@ -175,6 +177,7 @@
             "email_notifications_description":"Vous recevrez des notifications par e-mail. S'il vous plaît confirmer votre adresse email si vous n'avez pas déjà.",
             "main_password":"Mot de passe principal",
             "never_remember_two_factor_description":"Par défaut après la connexion avec authentification à deux facteurs de votre navigateur se souviendra pendant une courte période de temps qui vous permet de vous connecter à nouveau sans avoir à ré-authentifier. Cochez la case ci-dessous si vous souhaitez désactiver ce comportement et nécessitent une authentification complète à chaque fois.",
+            "google_authenticator_p2":"Après scannant le code QR ci-dessus avec l&#39;application Google Authenticator entrez le code d&#39;authentification ci-dessous:",
             "security_warning_continue":"Continuer",
             "integrity_check_run":"Lancez la vérification",
             "enter_sms_code":"Entrez le code de vérification contenue dans un message SMS.",
@@ -215,6 +218,7 @@
             "restrict_to_ip_description":"Activez cette option pour limiter l'accès à votre portefeuille vers une adresse IP spécifique ou plusieurs adresses IP séparées par des virgules. Seulement activer cette option si vous avez une adresse IP statique. Vous ne serez pas capable de se connecter ou d'accéder à toute l'API depuis n'importe quel ordinateur sur le réseau n'est pas spécifiée mais les applications mobiles va continuer à fonctionner une fois apparié.",
             "three_confirmations":"3 confirmations",
             "language_description":"Définissez votre langue préférée ci-dessous",
+            "block_tor_ips":"Bloquer les adresses IP TOR",
             "five_confirmations":"5 Confirmations",
             "google_authenticator_description":"Ouvrez l'application Google Authenticator et scanner le code QR ci-dessous pour compléter le processus d'appariement.",
             "one_confirmation":"1 Confirmation",
@@ -222,6 +226,7 @@
             "yubikey_description":"Pour jumeler votre clé à votre compte sélectionner la zone de texte ci-dessous et appuyez sur le bouton vert LED sur votre appareil yubikey.",
             "email":"Messagerie",
             "notifications":"Notifications",
+            "google_authenticator_enabled":"Google Authenticator est activé",
             "inactivity_30_minutes":"30 Minutes",
             "alias_placeholder":"Un autre mot ou Pseudo mémorable",
             "verify_email_btn":"Vérifier",
@@ -233,6 +238,11 @@
             "secret_phrase_description":"Une phrase secrète peut être utilisée pour nous aider à vérifier votre identité en cas de perte identifiant portefeuille ou yubikey. Il peut être un seul mot ou une phrase jusqu'à 255 caractères de longueur.",
             "sends":"Envoie Bitcoins",
             "forgot_password_warning":"Attention!",
+            "pbkdf2_iterations":{
+               "p1":"PBKDF2 est une fonction qui s&#39;étend de passe augmentant l&#39;effort nécessaire pour bruteforcer il. Un plus grand nombre d&#39;itérations est meilleure mais vous remarquerez peut-être un ralentissement de votre navigateur.",
+               "iterations":"Itérations",
+               "header":"PBKDF2 itérations"
+            },
             "password_notice":"Votre mot de passe ne sont jamais partagés avec nos serveurs de n&#39;importe quelle forme. Cela signifie que votre porte-monnaie serait toujours en sécurité en cas nos serveurs ont été compromis. Cependant cela signifie qu&#39;il n&#39;existe aucune fonctionnalité de réinitialisation de mot.",
             "password_mnemonic_description":"Mnémoniques mot de passe peuvent être utilisés pour récupérer votre mot de passe en cas d&#39;oubli portefeuille. Sans le mnémonique il n&#39;existe aucun moyen nous pouvons vous aider à récupérer un mot de passe oublié. Lors de la modification des mots de passe portefeuille le mnémonique va changer.",
             "email_notifications":"Notifications par courriel",
@@ -292,6 +302,7 @@
             "backup":"Sauvegarde"
          },
          "modals":{
+            "insufficient_funds_adjust_amount":"Réglez Montant",
             "scan_qr_code":"Numérisation QR Code",
             "add_watch_only_address_p3":"Si vous n'êtes pas clair sur la différence entre une adresse bitcoin et une clé privée, alors ce n'est pas l'option que vous voulez.",
             "add_watch_only_address_p1":"S'il vous plaît confirmer que vous le feriez pour ajouter le {0} {1} adresse.",
@@ -325,9 +336,12 @@
             "version":"Version",
             "confirm_delete":"Confirmer la suppression",
             "address_book_label_help":"Entrez le Label pour cette adresse. par exemple le nom de la personne ou de nom de société.",
+            "insufficient_funds_p2":"La transaction peut être soit annulée. Ou le montant à envoyer peut être ajustée pour correspondre à la quantité maximale disponible pour envoyer.",
+            "insufficient_funds_p1":"Cette opération ne peut pas être envoyé car il ya des fonds disponibles insufficent. Cela peut être dû à des frais supplémentaires de mineurs ou de transactions non confirmées.",
             "address_placeholder":"Adresse Bitcoin",
             "outputs":"Sorties",
             "send_via_email_h3":"Envoyer {0} BTC au {1}",
+            "insufficient_funds_title":"Fonds insuffisants",
             "confirm_delete_warning":"Suppression d'une adresse incorrecte peut entraîner une perte financière. Si vous n'êtes pas sûr de ce que vous faites maintenant annuler la presse",
             "claim_title":"Vous avez reçu bitcoins!",
             "continue_btn":"Continuer",
@@ -340,6 +354,7 @@
             "claim_zero_balance":"Le solde de cette adresse bitcoin est égal à zéro. Le paiement peut-être déjà été demandée ou la transaction a été annulée par l'expéditeur.",
             "total_fees":"Total des honoraires",
             "verify_message_placeholder":"Entrez le message pour vérifier",
+            "insufficient_funds_required":"Requis:",
             "password_change":"Confirmer Changer mot de passe",
             "offline_instructions":"Pour compléter la transaction {0} ouvert. Copiez et collez le texte ci-dessous dans la zone de texte et appuyez sur soumettre pour compléter la transaction. <\/ P>",
             "send_via_email_sub":"Le message suivant sera envoyé au destinataire.",
@@ -357,6 +372,7 @@
             "close":"Fermer",
             "sweep_to":"Balayer Pour:",
             "add_address":"Ajouter une adresse",
+            "insufficient_funds_available":"Disponible:",
             "transaction_information":"Renseignements sur l'opération",
             "main_password_needed":"Mot de passe principal nécessaire",
             "label_placeholder":"Étiquette par exemple Épargnes",
@@ -377,12 +393,13 @@
             "nodes_connected":"Nœuds connectés",
             "login_to_my_wallet":"Login sur mon Porte-monnaie",
             "created_offline_p1":"Votre transaction a été créé avec succès mais n'a pas encore été diffusée sur le réseau p2p.",
+            "insufficient_funds_cancel_transaction":"Annuler Transaction",
             "compressed_private_key_p1":"Compressés clés privées ne sont actuellement pas pris en charge via l'application pour Android, iPhone ou API Merchant. Si vous importez une clé privée comprimé directement vous ne serez pas en mesure de dépenser les fonds à cette adresse en utilisant les dispositifs précédemment mentionnés.",
             "address_not_synced_p2":"Sauf si la clé privée est enregistrée ailleurs des pièces envoyées à des adresses non synchronisées seront définitivement perdues après la déconnexion",
             "network_percent":"% Du réseau",
             "please_confirm":"S'il vous plaît confirmer que vous souhaitez {0}",
-            "watch_only_warning":"Regarder Avertissement Adresse Seul",
             "label_address_p1":"S'il vous plaît entrer une étiquette pour l'adresse {0}",
+            "watch_only_warning":"Regarder Avertissement Adresse Seul",
             "compressed_private_key_p2":"La solution recommandée est de balayer les fonds en une adresse bitcoin existant. Voulez-vous balayer cette clé privée à la place?",
             "address_not_synced_p1":"Une nouvelle adresse généré n&#39;a pas été sauvegardées sur nos serveurs pour le moment.",
             "label_address":"Étiquette-adresse",
@@ -421,11 +438,12 @@
             "invalid_skype_username":"Invalid Username Skype",
             "invalid_length":"Paramètre de longueur doit être numérique",
             "authentication_code_used_already":"Ce code d'authentification a déjà été utilisée",
-            "error_updating_ip_lock":"Erreur Mise à jour de verrouillage IP",
+            "error_updating_ip_lock":"Erreur mise à jour Verrouillage IP",
             "authentication_code_incorrect":"Code d'authentification est incorrecte",
             "two_factor_authentication_not_enabled":"Authentification à deux facteurs n'est pas activé sur votre compte",
             "captcha_incorrect":"Captcha code incorrect",
             "error_updating_email":"Erreur mise à jour e-mail",
+            "error_block_tor_ips_updated":"Erreur mise à jour de bloc d&#39;adresse ip TOR.",
             "error_updating_password_hint":"Erreur mise à jour Password Hint",
             "reminder_recently_sent":"Un message de rappel a été envoyée récemment.",
             "email_code_incorrect":"Code de vérification incorrecte",
@@ -457,6 +475,7 @@
             "two_factor_enabled_no_email":"Authentification à deux facteurs est activée, mais vous n'avez pas ajouté un e-mail.",
             "error_unsubscribing":"Porte-monnaie ou un code identifiant e-mail étaient incorrects. Vous n'avez pas été désabonné",
             "error_creating_two_factor_reset_request":"Erreur créant deux facteurs d'authentification demande de réinitialisation",
+            "tor_ip_addresses_blocked":"Adresses IP TOR sont bloqués à partir de ce portefeuille.",
             "error_updating_secret_phrase":"Erreur mise à jour phrase secrète",
             "invalid_ip_address":"Adresse IP invalide",
             "email_updated_eror_sending_link":"Envoyer à jour. Cependant, une erreur s'est produite lors de l'envoi lien de confirmation.",
@@ -466,6 +485,7 @@
             "invalid_payload":"Charge utile invalide",
             "error_saving_to_google_drive":"Erreur Sauvegarde sur Google Drive",
             "unknown_currency_code":"Code Devise inconnue",
+            "authorization_required_by_email":"Autorisation requise. S&#39;il vous plaît vérifier votre email.",
             "error_updating_skype":"Erreur mise à jour Skype username",
             "account_locked_for_minutes":"Le compte est verrouillé pendant {0} minutes.",
             "account_locked":"Ce compte a été verrouillé",
@@ -476,6 +496,7 @@
             "two_factor_authentication_request_declined":"Deux Demande de réinitialisation Facteur d'authentification Refusée",
             "wallet_already_exists":"Porte-monnaie existe déjà",
             "wallet_size_restricted":"Portefeuilles sont limités à 1 Mo en taille",
+            "google_secret_null":"Google secret est Null",
             "error_validating_yubikey":"Erreur Validation Yubikey",
             "error_updating_local_currency":"Erreur mise à jour en monnaie locale",
             "unknown_language_code":"Code de langue inconnue",
@@ -609,6 +630,7 @@
             "forgotten_something":"Oublié quelque chose?",
             "lost_password":"Mot de passe perdu",
             "resend_link_btn":"Renvoyer le lien",
+            "add_email_reminder":"Rappel: Ajouter un e-mail à votre compte.",
             "download_backup_btn":"Télécharger Backup",
             "password_hints_btn":"Conseils Mot de passe",
             "resend_link_p1":"L'email sera envoyé à partir wallet@blockchain.info. Assurez-vous de vérifier votre dossier spam. Si vous ne trouvez toujours pas l'e-mail cliquez sur le bouton ci-dessous pour le renvoyer.",
@@ -628,6 +650,7 @@
             "email_code_help":"Un email contenant un code de confirmation temporaire a été envoyé à votre compte.",
             "resend_link_title":"Vous ne pouvez pas trouver votre code d&#39;e-mail?",
             "forgotten_identifier_btn":"Identificateur de passe oublié",
+            "verify_email_reminder":"Rappel: Vérifiez votre boîte email.",
             "forgotten_something_sub":"Au secours! Je me suis enfermé à mon compte",
             "google_authenticator":"Google Authenticator :",
             "two_factor_reset":"Deux Réinitialiser authentification à deux facteurs",
@@ -714,7 +737,7 @@
             "brain_wallet_title":"Cerveau Porte-monnaie",
             "import_paper_btn":"Numérisation Avec Webcam",
             "desktop_sync_title":"Sync Client Bureau",
-            "desktop_sync_instructions":"S'il vous plaît installer le {0} disponibles pour Google Chrome ou {1} disponible pour Mozilla Firefox et Apple Safari (V> = 1.9 requis).",
+            "desktop_sync_instructions":"S&#39;il vous plaît installer le {0} disponibles pour Google Chrome.",
             "watch_only_btn":"Ajouter Only Watch Adresse",
             "export_p1":"Voici vos clés privées chiffrées AES."
          },
@@ -728,6 +751,7 @@
             "confirmation_email_sent":"Courriel de confirmation",
             "two_factor_reset_request_submitted":"Une demande de réinitialisation authentification à deux facteurs a déjà été soumis.",
             "notification_settings_updated":"Paramètres de notification mis à jour",
+            "block_tor_ips_updated":"Paramètres d&#39;adresse IP TOR mis à jour.",
             "logging_level_updated":"Niveau de journalisation mis à jour.",
             "email_updated":"Mise à jour e-mail",
             "unsubscribed":"Votre courriel a été désinscrit de toutes les notifications",
@@ -816,9 +840,10 @@
          "sub_header":"Afficher des informations sur une transaction bitcoin",
          "minutes":"procès-verbal",
          "received_time":"Heure de réception",
-         "fees":"Honoraires",
          "estimated_very_soon":"Très bientôt",
          "network_propagation":"Réseau de propagation (Cliquez pour afficher)",
+         "fees":"Honoraires",
+         "tx_unspendable":"Cette opération ne peut être dépensé!",
          "decoded":"décodé",
          "header":"Transaction",
          "size":"Taille",
@@ -841,6 +866,7 @@
          "invalid_last_name":"Nom invalide",
          "missing_parameter":"Paramètre Mising",
          "invalid_block_hash":"Invalid Hash Bloquer",
+         "quota_exceeded":"Dépassement du quota",
          "invalid_numerical_value":"Valeur numérique incorrecte",
          "block_not_found":"Bloquer Introuvable"
       },
@@ -956,6 +982,9 @@
             "paper_wallets":"Portefeuilles de papier"
          },
          "introduction_video":"Voir Présentation Bitcoin",
+         "anonymous":{
+            
+         },
          "merchants":{
             "title":"Les commerçants dans le monde entier",
             "p2":"Une liste complète des marchands Bitcoin peut être trouvé sur le",
@@ -1000,15 +1029,15 @@
          },
          "create_my_free_wallet":"Créer My Wallet gratuit"
       },
-      "maintenance":{
-         "title":"Site en maintenance - Blockchain.info",
-         "p1":"Blockchain.info est actuellement en maintenance. Pour les mises à jour de statut s'il vous plaît voir {0}. Veuillez nous excuser pour la gêne occasionnée.",
-         "header":"Nous reviendrons Peu de temps"
-      },
       "startup_message":{
          "title":"Chargement du site - Blockchain.info",
          "p1":"Devrait être de retour dans quelques secondes. Il pourrait même être de nouvelles fonctionnalités.",
          "header":"Site est en cours de chargement ..."
+      },
+      "maintenance":{
+         "title":"Site en maintenance - Blockchain.info",
+         "p1":"Blockchain.info est actuellement en maintenance. Pour les mises à jour de statut s'il vous plaît voir {0}. Veuillez nous excuser pour la gêne occasionnée.",
+         "header":"Nous reviendrons Peu de temps"
       },
       "donation_button":{
          "title":"Créer un bouton de don",
@@ -1029,6 +1058,13 @@
             "p1":"Une demande a été faite pour éliminer authentification à deux facteurs à partir de votre compte Mon Porte-monnaie:",
             "header":"Deux Demande de réinitialisation Factor Authentication"
          },
+         "authorize_login":{
+            "title":"Autoriser vous identifier tentative",
+            "p3":"Si cette tentative de connexion a été faite par vous ce message peut être ignoré mais vous pouvez changer votre alias du portefeuille.",
+            "p2":"Si les informations ci-dessus sont corrects s&#39;il vous plaît utilisez le lien de connexion ci-dessous:",
+            "p1":"Une tentative d&#39;accéder à votre portefeuille blockchain.info a été faite à partir d&#39;un navigateur inconnu. Veuillez confirmer les informations suivantes sont correctes:",
+            "header":"Autoriser vous identifier tentative"
+         },
          "top_tip":"Tip Top",
          "tip_reversible":"Ce paiement peut être renversée par l'expéditeur aussi longtemps réclamé.",
          "password_hints":{
@@ -1046,6 +1082,12 @@
             "header":"Porte-monnaie de sauvegarde"
          },
          "tip_backup":"Sauvegardez votre porte-monnaie bitcoin en utilisant la sélection. C'est gratuit, facile à utiliser et sûr.",
+         "login_blocked":{
+            "title":"Connectez-vous tenter bloqué",
+            "p2":"Si cette tentative de connexion a été faite par vous ce message peut être ignoré. Toutefois, si cette tentative de connexion n&#39;a pas été faite par vous quelqu&#39;un essaie peut-être d&#39;accéder à votre portefeuille, dans ce cas, l&#39;accès a été bloqué.",
+            "p1":"Une tentative d&#39;accéder à votre compte My Wallet a été bloqué. Pour votre propre sécurité, s&#39;il vous plaît examiner les détails ci-dessous:",
+            "header":"Connectez-vous tenter bloqué"
+         },
          "your_wallet_identifier":"Votre identifiant portefeuille est la suivante:",
          "welcome":{
             "notifications_enabled":"Les notifications sont activées",
@@ -1053,6 +1095,7 @@
             "alias":"Alias :",
             "notifications":"Notifications :",
             "p1":"Cet email contient des informations importantes sur votre bitcoin nouveau portefeuille. Soyez sûr de garder ce coffre-fort et stockées séparément de votre mot de passe.",
+            "verification_link":"Vérification lien:",
             "confirmation_code":"Code de confirmation:",
             "header":"Bienvenue à mon portefeuille",
             "login_link":"Connectez-vous Lien:"
@@ -1078,9 +1121,24 @@
          "header":"Hashrate distribution",
          "days_4":"4 Jours"
       },
+      "header":{
+         "home_title":"Accueil Blockchain.info",
+         "home":"Maison",
+         "charts":"Graphiques",
+         "stats_title":"Bitcoin Statistiques",
+         "logo_alt_title":"Bitcoin bloc explorateur et les statistiques monétaires",
+         "markets":"Marchés",
+         "stats":"Statistiques",
+         "developer":"Développeurs",
+         "markets_title":"Marchés Bitcoin",
+         "charts_title":"Graphiques Bitcoin",
+         "developer_title":"Blockchain Developer Tools",
+         "wallet_title":"Bitcoin Wallet",
+         "wallet":"Portefeuille",
+         "search_placeholder":"Rechercher"
+      },
       "wallet_new":{
          "disclaimer":"Désistement",
-         "email_sub":"Si vous souhaitez que nous vous enverrons un lien pour vous s'il vous plaît nouveau portefeuille, entrez votre adresse email ci-dessous.",
          "anonymity_policy":"Politique de l'anonymat",
          "password_strength":"Force Mot de passe",
          "password":"Mot de passe:",
@@ -1091,6 +1149,7 @@
          "confirm_password":"Confirmer mot de passe:",
          "title":"Mon Portefeuille",
          "wallet_created":"Nouveau Porte-monnaie créé!",
+         "email_help_block":"Nous vous enverrons par email un lien vers votre nouveau portefeuille.",
          "optional":"En option",
          "mnemonic_modal_p2":"Sans le mnémonique nous ne pouvons pas vous aider à récupérer les mots de passe oubliés et se traduira par <b>la perte de toutes vos bitcoins!.<\/b>",
          "password_strength_p1":"Nous avons besoin d'un mot de passe d'au moins 10 caractères pour s'assurer que même si notre base de données est compromise votre portefeuille restera sécurisé. A 10 caractères de longueur de mot de passe aura plus de 1000 ans pour le décrypter.",
@@ -1112,20 +1171,6 @@
          "captcha":"CAPTCHA :",
          "dont_forget_password":"N'oubliez pas votre mot de passe!",
          "alias_placeholder":"Mot mémorable ou pseudo"
-      },
-      "header":{
-         "home_title":"Accueil Blockchain.info",
-         "home":"Maison",
-         "charts":"Graphiques",
-         "stats_title":"Bitcoin Statistiques",
-         "logo_alt_title":"Bitcoin bloc explorateur et les statistiques monétaires",
-         "stats":"Statistiques",
-         "developer":"Développeurs",
-         "charts_title":"Graphiques Bitcoin",
-         "developer_title":"Blockchain Developer Tools",
-         "wallet_title":"Bitcoin Wallet",
-         "wallet":"Portefeuille",
-         "search_placeholder":"Rechercher"
       },
       "strange_transactions":{
          "sub_header":"Transactions contenant sorties à partir de laquelle nous n'avons pas pu décoder une adresse bitcoin.",
@@ -1394,6 +1439,15 @@
          "included_in_block":"Inclus dans le bloc {0}",
          "warning":"Double passe sur cette page peut être involontaire. Dans le cas où une double dépense est construit de manière malveillante être listés sur cette page, rien n'indique que cela a été un succès ou un commerçant ou d'un utilisateur perdu de l'argent en conséquence.",
          "header":"Double Passe"
+      },
+      "unspent_outputs":{
+         "title":"Sorties non dépensés {0}",
+         "meta_description":"Une liste de toutes les sorties Bitcoin non dépensés appartenant à {0}.",
+         "locked_outputs":"Sorties verrouillées",
+         "unspendable":"Unspendable!",
+         "locked_outputs_desc":"Sorties verrouillées sont des sorties qui ont été marqués par blockchain.info unspendable temporairement. C&#39;est généralement parce qu&#39;une transaction passer une de ces sorties vient d&#39;être diffusée. Entrées verrouillées automatiquement déverrouillées après environ 10 minutes.",
+         "locked":"Verrouillé!",
+         "header":"Sorties non dépensés"
       },
       "relayed_by":{
          "associated_ips":"Adresses IP associées",
@@ -1669,7 +1723,8 @@
             "taint_analysis":"Analyse Taint",
             "view_analysis":"Voir l'analyse",
             "short_link":"Lien court",
-            "related_tags":"Tags associés"
+            "related_tags":"Tags associés",
+            "unspent_outputs":"Sorties non dépensés"
          },
          "bitcoin_address":"Adresse Bitcoin",
          "confirmed_only":"Confirmé seulement",
@@ -1693,15 +1748,15 @@
          "too_large_to_filter":"Ce registre d'adresses est trop grand pour filtrer",
          "title":"Adresse Bitcoin {0}",
          "sent":"Expédié",
-         "meta_description":"Transactions envoyés et reçus depuis l'adresse bitcoin",
+         "meta_description":"Transactions envoyés et reçus depuis l&#39;adresse bitcoin {0}.",
          "confirmed":"Confirmé",
          "oldest_first":"(Plus anciennes)",
          "no_transactions":"Aucune transaction trouvés pour cette adresse, il n'a probablement pas été utilisé sur le réseau pour le moment.",
          "deposit_with_cash":"Dépôt Avec Cash"
       }
    },
+   "code":"fr",
    "properties":{
       "extends":"language"
-   },
-   "code":"fr"
+   }
 }

@@ -101,6 +101,7 @@
       "wallet_app":{
          "disconnected":"LEVÁLT",
          "transactions":{
+            "filter_unspendable":"Unspendable (Alapértelmezett)",
             "sub_header":"Összefoglaló a legutóbbi tranzakciók",
             "sent":"Küldött",
             "compact":"Kompakt",
@@ -142,6 +143,7 @@
             "notifications_when_both":"Küld vagy fogad Bitcoins",
             "for_example":"Például:",
             "multiple_ip_comma_seperated":"Több IP címeket vesszővel elválasztva.",
+            "block_tor_ips_description":"Engedélyezze a következő lehetőség, hogy megakadályozzák IP-cím része a TOR anonymizing hálózati hozzáférését a pénztárca.",
             "automatic_email_backups":"Automatic Email mentések",
             "sms_notifications":"SMS értesítések",
             "automatic_email_backups_description":"Jelölje be ezt, hogy kap egy új biztonsági automatikusan a pénztárca módosítások:",
@@ -175,6 +177,7 @@
             "email_notifications_description":"Lesz kap értesítést e-mailben. Kérjük, erősítse meg e-mail címét, ha még nem tette meg.",
             "main_password":"Main Password",
             "never_remember_two_factor_description":"By Default bejelentkezés után két faktoros azonosítást böngészőjében emlékezni fognak egy rövid időre lehetővé teszi, hogy jelentkezzen be újra, anélkül, hogy újra hitelesítse. Ellenőrizze az alábbi mezőbe, ha le szeretné tiltani ezt a viselkedést, és csak teljes hitelesítést minden alkalommal.",
+            "google_authenticator_p2":"Keresés után a fenti QR kódot a google hitelesítő alkalmazás adja meg a hitelesítő kódot az alábbi:",
             "security_warning_continue":"Folytatódik",
             "integrity_check_run":"Run ellenőrzése",
             "enter_sms_code":"Írja be a kódot tartalmazott ellenőrző sms üzenetet.",
@@ -215,6 +218,7 @@
             "show_hide_pairing_code":"Megjelenítése \/ elrejtése párosítási kód.",
             "language_description":"Állítsa be a kívánt nyelvet az alábbi",
             "three_confirmations":"3 megerősítések",
+            "block_tor_ips":"Blokk TOR IP címek",
             "google_authenticator_description":"Nyissa meg a Google Hitelesítő alkalmazást, és beolvasni a QR alábbi kódot a párosítás befejezéséhez folyamatot.",
             "five_confirmations":"5 megerősítések",
             "one_confirmation":"1 megerősítése",
@@ -222,6 +226,7 @@
             "yubikey_description":"Párosítása a kulcs a fiókjához jelölje ki a szöveget az alábbi mezőbe, és nyomja meg a zöld LED gombot a yubikey készüléken.",
             "email":"Email",
             "notifications":"Értesítések",
+            "google_authenticator_enabled":"Google Hitelesítő engedélyezve",
             "inactivity_30_minutes":"30 perc",
             "alias_placeholder":"A Felhasználónév vagy más emlékezetes Szó",
             "two_factor_authentication":"Két Factor hitelesítés",
@@ -233,6 +238,11 @@
             "secret_phrase_description":"Egy titkos kifejezést lehet használni, hogy segítsen nekünk ellenőrizni az Ön személyazonosságát esetén az elveszett pénztárca azonosítója vagy yubikey. Ez lehet egy szó vagy mondat legfeljebb 255 karakter hosszúságú lehet.",
             "sends":"Elküldi Bitcoins",
             "forgot_password_warning":"Figyelem!",
+            "pbkdf2_iterations":{
+               "p1":"PBKDF2 egy olyan funkció, amely húzódik a jelszavát növelése érdekében szükséges Bruteforce azt. A nagyobb számú ismétlések jobb azonban előfordulhat, lassú le a böngésző.",
+               "iterations":"Iterációszám",
+               "header":"PBKDF2 Iterációszám"
+            },
             "password_notice":"A jelszó soha nem megosztott szerver bármilyen alakban vagy formában. Ez azt jelenti, a pénztárca még mindig biztonságban az esetben a szerverek is sérül. Azonban ez azt jelenti, hogy nincs jelszó funkciót.",
             "email_notifications":"E-mail értesítések",
             "four_confirmations":"4 megerősítések",
@@ -292,6 +302,7 @@
             "backup":"Biztonsági mentés"
          },
          "modals":{
+            "insufficient_funds_adjust_amount":"Állítsa mennyisége",
             "scan_qr_code":"Scan QR Code",
             "add_watch_only_address_p3":"Ha nem egyértelmű a különbség a bitcoin címet és egy privát kulcsot, akkor ez valószínűleg nem a kívánt opciót.",
             "add_watch_only_address_p1":"Kérjük Még akkor adja hozzá a {0} címre {1}.",
@@ -325,9 +336,12 @@
             "version":"Változat",
             "confirm_delete":"Törlés megerősítése",
             "address_book_label_help":"Adja meg a címke az ezt a címet. például a személy nevét vagy a cég nevét.",
+            "insufficient_funds_p2":"A tranzakció vagy lehet szüntetni. Vagy az összeg, hogy küldjön lehet beállítani, hogy megfeleljen a rendelkezésre álló maximális összeget küld.",
+            "insufficient_funds_p1":"Ezt az ügyletet nem lehet elküldeni, mert vannak olyan insufficent rendelkezésre álló források. Ennek oka lehet, hogy a bányászok kiegészítő díjak vagy erősített ügyletek.",
             "address_placeholder":"Bitcoin cím",
             "outputs":"Kimenetek",
             "send_via_email_h3":"Küldés {0} BTC a {1}",
+            "insufficient_funds_title":"Elégtelen alapok",
             "confirm_delete_warning":"Törlése hibás cím okoz pénzügyi veszteséget. Ha nem biztos benne, mit csinálsz nyomjuk most megszakítja",
             "claim_title":"Kaptál bitcoins!",
             "continue_btn":"Folytatódik",
@@ -340,6 +354,7 @@
             "claim_zero_balance":"A fennmaradó E bitcoin cím nulla. A fizetés is már állították, vagy az ügylet megfordult a feladónak.",
             "total_fees":"Összesen Díjak",
             "verify_message_placeholder":"Adja meg az üzenet, hogy ellenőrizze",
+            "insufficient_funds_required":"Szükséges:",
             "password_change":"Jelszó megerősítése Change",
             "offline_instructions":"Hogy teljes legyen a tranzakciót nyitott {0}. Másolja és illessze be az alábbi szöveget a textarea és nyomja be befejezni a tranzakciót. <\/p>",
             "send_via_email_sub":"A következő üzenetet kell küldeni a címzettnek.",
@@ -357,6 +372,7 @@
             "close":"Közeli",
             "sweep_to":"Sweep:",
             "add_address":"Cím hozzáadása",
+            "insufficient_funds_available":"Elérhető:",
             "transaction_information":"Tranzakciós adatok",
             "main_password_needed":"Main Password Needed",
             "label_placeholder":"Label pl Megtakarítási",
@@ -377,12 +393,13 @@
             "nodes_connected":"Csomópontok Connected",
             "login_to_my_wallet":"Bejelentkezés To My Wallet",
             "created_offline_p1":"A tranzakció sikeres létrehozása, de még nem közvetítenek a p2p hálózat.",
+            "insufficient_funds_cancel_transaction":"Mégsem Tranzakció",
             "compressed_private_key_p1":"Tömörített magánkulcsok jelenleg nem támogatottak a Android app, iPhone app vagy a Merchant API. Ha importál egy tömörített privát kulcsot közvetlenül nem fogja tudni tölteni az alapok a címet a korábban felsorolt \u200B\u200Beszközöket.",
             "address_not_synced_p2":"Kivéve, ha a privát kulcs van mentve mailt minden érmét küldött ENSZ-szinkronizált címek véglegesen elvesznek logout",
             "network_percent":"% Of Network",
             "please_confirm":"Kérjük, erősítse meg szeretné {0}",
-            "watch_only_warning":"Nézd csak Address Warning",
             "label_address_p1":"Kérjük, adjon meg egy címkét cím {0}",
+            "watch_only_warning":"Nézd csak Address Warning",
             "compressed_private_key_p2":"Az ajánlott megoldás az, hogy söpörje a pénzeszközök egy létező bitcoin címet. Szeretné söpörni ezt a privát kulcs helyett?",
             "address_not_synced_p1":"Egy újonnan generált cím nem lett mentve a szervereink még.",
             "label_address":"Label cím",
@@ -422,10 +439,11 @@
             "invalid_length":"Length paramétert kell numerikus",
             "authentication_code_used_already":"Ez a hitelesítési kód már korábban használt",
             "authentication_code_incorrect":"Hitelesítési kód helytelen",
-            "error_updating_ip_lock":"Hiba történt Frissítve: IP Lock",
+            "error_updating_ip_lock":"Hiba frissítése IP Lock",
             "two_factor_authentication_not_enabled":"Két Factor hitelesítés nincs engedélyezve a fiókjában",
             "captcha_incorrect":"Captcha kód helytelen",
             "error_updating_email":"Hiba frissítése Email",
+            "error_block_tor_ips_updated":"Hiba frissítése TOR IP-cím blokk.",
             "error_updating_password_hint":"Hiba történt frissítése Jelszó emlékeztető",
             "reminder_recently_sent":"Az emlékeztető üzenet nemrégiben elküldött.",
             "email_code_incorrect":"Email Ellenőrző kód helytelen",
@@ -457,6 +475,7 @@
             "two_factor_enabled_no_email":"Két tényező hitelesítés engedélyezve van, de még nem vett fel egy e-mailt.",
             "error_unsubscribing":"Wallet azonosító vagy e-mail-kód helytelenek voltak. Ön még nem leiratkozott",
             "error_creating_two_factor_reset_request":"Hiba történt létrehozásakor két tényező hitelesítési visszaállítási kérelmet",
+            "tor_ip_addresses_blocked":"TOR IP-címek blokkolva a pénztárca.",
             "error_updating_secret_phrase":"Hiba történt frissítése titkos mondat",
             "invalid_ip_address":"Érvénytelen IP-cím",
             "email_updated_eror_sending_link":"Email frissítve. Azonban egy hibát észlelt küldésére megerősítés linket.",
@@ -466,6 +485,7 @@
             "invalid_payload":"Érvénytelen Payload",
             "unknown_currency_code":"Ismeretlen Pénznem kód",
             "error_saving_to_google_drive":"Hiba történt mentése a Google Drive",
+            "authorization_required_by_email":"Engedély szükséges. Kérjük, ellenőrizze az e-mail.",
             "error_updating_skype":"Hiba történt frissítése Skype username",
             "account_locked_for_minutes":"Fiók le van zárva egy másik {0} perc.",
             "account_locked":"Ez a felhasználói fiók lezárva",
@@ -476,6 +496,7 @@
             "two_factor_authentication_request_declined":"Két Factor hitelesítés visszaállítása Request elutasítva",
             "wallet_already_exists":"Wallet már létezik",
             "wallet_size_restricted":"Pénztárca korlátozódnak 1MB méretű",
+            "google_secret_null":"Google Secret üres",
             "error_validating_yubikey":"Hiba történt érvényesítése Yubikey",
             "error_updating_local_currency":"Hiba történt frissítése helyi valutában",
             "unknown_language_code":"Ismeretlen Language Code",
@@ -674,7 +695,7 @@
             "brain_wallet_title":"Brain Wallet",
             "import_paper_btn":"Scan With Webcam",
             "desktop_sync_title":"Desktop Client szinkronizálása",
-            "desktop_sync_instructions":"Kérjük, telepítse a {0} elérhető a Google Chrome vagy a {1} elérhető a Mozilla Firefox és az Apple Safari (V&gt; = 1,9 szükséges).",
+            "desktop_sync_instructions":"Kérjük, telepítse a {0} a Google Chrome.",
             "watch_only_btn":"Add Watch Csak Cím",
             "export_p1":"Az alábbiakban a privát kulcs AES titkosításra."
          },
@@ -682,6 +703,7 @@
             "lost_password":"Elfelejtett jelszó",
             "forgotten_something":"Elfelejtett valamit?",
             "resend_link_btn":"Újraküldés link",
+            "add_email_reminder":"Emlékeztető: Hozzáadás e-mail fiókjába.",
             "download_backup_btn":"Letöltés Backup",
             "password_hints_btn":"Jelszó Tippek",
             "resend_link_p1":"Az e-mail kerül elküldésre wallet@blockchain.info. Ügyeljen arra, hogy ellenőrizze a spam mappába. Ha még mindig nem találja az e-mailt kattintson az alábbi gombra, hogy küldje be újra.",
@@ -701,6 +723,7 @@
             "email_code_help":"Egy e-mail tartalmaz egy ideiglenes visszaigazoló kódot elküldtük a fiókjába.",
             "resend_link_title":"Nem Find Your Email kód?",
             "forgotten_identifier_btn":"Elfelejtett azonosító",
+            "verify_email_reminder":"Emlékeztető: Ellenőrizze az e-mail.",
             "forgotten_something_sub":"Segítség! Már zárva magam a fiókom",
             "google_authenticator":"Google Hitelesítő:",
             "two_factor_reset":"Két Factor hitelesítés visszaállítása",
@@ -728,6 +751,7 @@
             "confirmation_email_sent":"Megerősítő e-mail elküldve",
             "two_factor_reset_request_submitted":"Kérelem visszaállítása Two Factor hitelesítés már benyújtották.",
             "notification_settings_updated":"Értesítések beállításai frissítve",
+            "block_tor_ips_updated":"TOR IP címet frissíteni.",
             "logging_level_updated":"Naplózási szint frissítve.",
             "unsubscribed":"Az e-mail már leiratkozott összes értesítést",
             "email_updated":"Email Frissítve:",
@@ -819,6 +843,7 @@
          "fees":"Díjak",
          "estimated_very_soon":"Nagyon hamar",
          "network_propagation":"Network terjedése (Kattintson a megtekintéshez)",
+         "tx_unspendable":"Ezt az ügyletet nem töltött!",
          "decoded":"dekódolt",
          "header":"Tranzakció",
          "size":"Méret",
@@ -841,6 +866,7 @@
          "invalid_last_name":"Érvénytelen Vezetéknév",
          "missing_parameter":"Ígéretes Paraméter",
          "invalid_block_hash":"Érvénytelen blokk Hash",
+         "quota_exceeded":"Kvóta túllépve",
          "invalid_numerical_value":"Érvénytelen számérték",
          "block_not_found":"Blokk Not Found"
       },
@@ -956,6 +982,9 @@
             "paper_wallets":"Paper Pénztárcák"
          },
          "introduction_video":"Bitcoin Bevezetés megnézése",
+         "anonymous":{
+            
+         },
          "merchants":{
             "title":"Világszerte Merchants",
             "p2":"A teljes lista a bitcoin kereskedők megtalálható a",
@@ -1029,6 +1058,13 @@
             "p1":"A kérelmet nyújtottak be, hogy távolítsa el a kéttényezős hitelesítést a My Wallet-fiókjában:",
             "header":"Két Factor hitelesítés visszaállítás kérése"
          },
+         "authorize_login":{
+            "title":"Engedélyezheti jelentkezzen be kísérlet",
+            "p3":"Ha a bejelentkezési kísérlet hozta meg az e-mailt is nyugodtan figyelmen kívül azonban érdemes változtatni a pénztárca alias.",
+            "p2":"Ha a fenti adatok helyesek, kérjük használja a következő login link:",
+            "p1":"Kísérlet arra, hogy jelentkezzen be a blockchain.info pénztárca készült egy ismeretlen böngészőt. Kérjük, ellenőrizze a következő adatok helyességét:",
+            "header":"Engedélyezheti jelentkezzen be kísérlet"
+         },
          "top_tip":"Tip Top",
          "tip_reversible":"A kifizetés lehet fordítani a küldő-ig igényelt.",
          "password_hints":{
@@ -1046,6 +1082,12 @@
             "header":"Wallet Backup"
          },
          "tip_backup":"Hát a bitcoin pénztárca használatával Dropbox. Ez ingyenes, könnyen kezelhető és biztonságos.",
+         "login_blocked":{
+            "title":"Bejelentkezési kísérlet blokkolva",
+            "p2":"Ha a bejelentkezési kísérlet hozta meg az e-mailt is átugorható. Ha azonban ez a bejelentkezési kísérlet nem tett akkor valaki lehet, próbál hozzáférni a pénztárca, ebben az esetben a hozzáférés blokkolva volt.",
+            "p1":"Kísérlet arra, hogy hozzáférjen a tárcám számláját zárolták. Saját biztonsága kérem tekintse meg az alábbi adatokat:",
+            "header":"Bejelentkezési kísérlet blokkolva"
+         },
          "your_wallet_identifier":"A tárca azonosító:",
          "welcome":{
             "notifications_enabled":"Értesítések engedélyezve vannak",
@@ -1053,6 +1095,7 @@
             "alias":"Alias:",
             "notifications":"Értesítések:",
             "p1":"Az e-mail fontos információkat tartalmaz az új bitcoin tárcáját. Ügyeljen arra, hogy ezt a biztonságos és elkülönítve tárolják a jelszót.",
+            "verification_link":"Ellenőrzés Link:",
             "confirmation_code":"Megerősítő kód:",
             "header":"Welcome To My Wallet",
             "login_link":"Bejelentkezés Link:"
@@ -1080,7 +1123,6 @@
       },
       "wallet_new":{
          "disclaimer":"Lemondás",
-         "email_sub":"Ha azt szeretné, hogy e-mailben egy linket az Ön új mobiltárca Kérjük, adja meg e-mail címét.",
          "anonymity_policy":"Anonymity Policy",
          "password_strength":"Jelszó erőssége",
          "password":"Jelszó:",
@@ -1091,6 +1133,7 @@
          "confirm_password":"Jelszó megerősítése:",
          "title":"My Wallet",
          "wallet_created":"Új Wallet Alkotó!",
+         "email_help_block":"Mi e-mailben egy linket az új pénztárca.",
          "optional":"Választható",
          "mnemonic_modal_p2":"Nélkül mnemonikus nem tudunk segíteni visszaállítani elfelejtett jelszavak és elvesztését <b>eredményezheti ÖSSZES bitcoins!.<\/b>",
          "password_strength_p1":"Elvárjuk a jelszó legalább 10 karakter hosszú, hogy még ha Adatbázisunk veszélybe pénztárcáját marad biztonságos. A jelszó 10 karakter hosszú lesz több, mint 1000 éve visszafejteni.",
@@ -1119,8 +1162,10 @@
          "charts":"Táblázatok",
          "stats_title":"Bitcoin Stats",
          "logo_alt_title":"Bitcoin blokk felfedező és valutával statisztika",
+         "markets":"Markets",
          "stats":"Statisztikák",
          "developer":"Fejlesztők",
+         "markets_title":"Bitcoin Markets",
          "charts_title":"Bitcoin Charts",
          "developer_title":"Blockchain Developer Tools",
          "wallet_title":"Bitcoin Wallet",
@@ -1394,6 +1439,15 @@
          "included_in_block":"Tartalmaz mondatban {0}",
          "warning":"Dupla költ ezen az oldalon lehet véletlen. Abban az esetben, ha a kettős ban is ártó szándékkal létrehozott alatt felsorolt \u200B\u200Bezen az oldalon nem utal arra, hogy ez sikeres volt, vagy bármely kereskedő vagy a felhasználó elvesztett pénzt eredményeként.",
          "header":"Double tölt"
+      },
+      "unspent_outputs":{
+         "title":"El nem költött Kimenetek {0}",
+         "meta_description":"A lista az összes fel nem használt bitcoin kimenet tartozó {0}.",
+         "locked_outputs":"Zárt kimenetek",
+         "unspendable":"Unspendable!",
+         "locked_outputs_desc":"Zárt kimenet kimenet, amelyek jelölve ideiglenesen unspendable által blockchain.info. Ez általában azért, mert a tranzakció kiadások egy ilyen kimenetek nemrég sugárzott. Zárt bemenet automatikusan kinyit körülbelül 10 perc elteltével.",
+         "locked":"Lezárt!",
+         "header":"Fel nem használt kimenetek"
       },
       "relayed_by":{
          "associated_ips":"Társult IP-címek",
@@ -1669,7 +1723,8 @@
             "taint_analysis":"Mellékíz Elemzés",
             "view_analysis":"Mind Elemzés",
             "short_link":"Rövid Link",
-            "related_tags":"Kapcsolódó címkék"
+            "related_tags":"Kapcsolódó címkék",
+            "unspent_outputs":"Fel nem használt kimenetek"
          },
          "bitcoin_address":"Bitcoin cím",
          "confirmed_only":"Megerősített Csak",
@@ -1694,7 +1749,7 @@
          },
          "too_large_to_filter":"Ez a cím főkönyvi túl nagy szűrni",
          "confirmed":"Megerősített",
-         "meta_description":"Tranzakciók küldött és kapott bitcoin címet",
+         "meta_description":"Tranzakciók küldött és kapott bitcoin cím {0}.",
          "oldest_first":"(Legrégebbi először)",
          "no_transactions":"Nincs ügyletek talált erre a címre, azt valószínűleg nem használtak a hálózaton még.",
          "deposit_with_cash":"Betét Készpénz"
